@@ -16,19 +16,27 @@ int sumaMultiplosTres(Nodo **raiz);
 
 int main(int argc, char** argv) {
 	Nodo *raiz = NULL;
-	int valor;
+	int valor, totalNodos;
 	
-	for(int i=0; i<5; i++)
-    {
-        cout << " Numero del nodo " << i+1 << ": ";
+	cout << "¿Cuantos Nodos desea ingresar al arbol?:  ";
+    cin >> totalNodos;
+	
+	cout << endl << " *** Recuerde que el primer nodo a ingresar sera el nodo raiz *** " << endl << endl;
+	for(int i=0; i<totalNodos; i++)    {
+        cout << "Valor del nodo " << (i + 1) << ": ";
         cin >> valor;
         insertar( &raiz, valor);
     }
-    cout << " ** Arbol Ingresado ** " << endl << endl;
-	imprimirArbol( &raiz, 0);
-	
-	cout << endl << " ** Nodos Multiplos de 3 ** " << endl << endl;
-	cout << endl << "Suma de los Multiplos de 3: " << sumaMultiplosTres(&raiz);
+    
+    if(totalNodos > 0){
+	    cout << " ** Arbol Ingresado ** " << endl << endl;
+		imprimirArbol( &raiz, 0);
+		
+		cout << endl << " ** Nodos Multiplos de 3 ** " << endl << endl;
+		cout << endl << "Suma de los Multiplos de 3: " << sumaMultiplosTres(&raiz);
+	}else{
+		cout << "Debe ingresar al menos 1 nodo.";
+	}
 	return 0;
 }
 
